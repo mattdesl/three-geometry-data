@@ -11,9 +11,6 @@
   },
   "dependencies": {},
   "devDependencies": {},
-  "peerDependencies": {
-    "three": "*"
-  },
   "scripts": {
     "test": "node test.js"
   },
