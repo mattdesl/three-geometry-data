@@ -1,0 +1,38 @@
+{
+  "name": "three-geometry-data",
+  "version": "1.0.0",
+  "description": "Get vertex and face data from THREE.Geometry",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "geometry",
+    "vertex",
+    "face",
+    "roll",
+    "unroll",
+    "mesh",
+    "simplicial",
+    "complex",
+    "cells",
+    "faces",
+    "vertices"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/three-geometry-data.git"
+  },
+  "homepage": "https://github.com/mattdesl/three-geometry-data",
+  "bugs": {
+    "url": "https://github.com/mattdesl/three-geometry-data/issues"
+  }
+}
