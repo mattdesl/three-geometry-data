@@ -8,11 +8,14 @@ This is useful to extract the normals, UV coordinates, colors, and positions of 
 const getVertexData = require('three-geometry-data');
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const { faces, vertices } = getVertexData(geometry);
+const { faces, attributes } = getVertexData(geometry);
 
-vertices.forEach(vertex => {
-  // each is a THREE.Vector3
-  console.log(vertex.position, vertex.normal);
+// list all vertices
+faces.forEach(([ a, b, c ]) => {
+  // a THREE.Vector3
+  console.log(attributes.position[a]);
+  console.log(attributes.position[b]);
+  console.log(attributes.position[c]);
 });
 ```
 
@@ -22,15 +25,17 @@ Where `faces` is a listed of nested face indices for each triangle:
 [ [0, 2, 1], [2, 3, 1], ... ]
 ```
 
-And `vertices` contains a list of vertex objects, each containing the data stored in the geometry, for example:
+And `attributes` is an object with the named attributes in an array of Vectors, such as:
 
 ```js
 {
-  normal: THREE.Vector3(1, 0, 0)
-  position: THREE.Vector3(0.5, 0.5, 0.5)
-  uv: THREE.Vector2(0, 1)
+  position: [ THREE.Vector3(0.5, 0.5, 0.5), ... ],
+  normal: [ THREE.Vector3(1, 0, 0), ... ],
+  uv: [ THREE.Vector2(0, 1), ... ]
 }
 ```
+
+If multiple sets of UVs exist, they will be named `uv`, then `uv1`, `uv2`, etc.
 
 ## Install
 
@@ -42,9 +47,9 @@ npm install three-geometry-data --save
 
 ## Usage
 
-#### `{ faces, vertices } = getVertexData(geometry)`
+#### `{ faces, attributes } = getVertexData(geometry)`
 
-Returns the `faces` and `vertices` of an indexed `THREE.Geometry` instance by unrolling the face data into an indexed array.
+Returns the `faces` and `attributes` of an indexed `THREE.Geometry` instance by unrolling the face data into arrays of Vector data.
 
 ## License
 

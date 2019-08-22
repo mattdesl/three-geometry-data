@@ -1,8 +1,8 @@
 module.exports = function getVertexData (geometry) {
-  var mesh = {};
   if (geometry.isBufferGeometry) {
     throw new Error('Expected THREE.Geometry, not THREE.BufferGeometry type');
   } else if (geometry.faces && geometry.faces.length > 0) {
+    var mesh = {};
     mesh.vertices = newArray(geometry.vertices.length);
     mesh.faces = newArray(geometry.faces.length);
     var uvSets = geometry.faceVertexUvs;
@@ -12,10 +12,24 @@ module.exports = function getVertexData (geometry) {
       push(geometry, mesh.vertices, face.b, face, 1, uvSets, faceIndex);
       push(geometry, mesh.vertices, face.c, face, 2, uvSets, faceIndex);
     });
+
+    var result = {
+      faces: mesh.faces,
+      attributes: {}
+    };
+    mesh.vertices.forEach(function (vertex) {
+      Object.keys(vertex).forEach(function (key) {
+        if (!(key in result.attributes)) {
+          result.attributes[key] = [];
+        }
+        var data = vertex[key];
+        result.attributes[key].push(data);
+      });
+    });
+    return result;
   } else {
     throw new Error('Expected geometry to have faces');
   }
-  return mesh;
 };
 
 // push vertex if it hasn't been added already

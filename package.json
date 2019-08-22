@@ -10,9 +10,12 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "tape": "^4.11.0",
+    "three": "^0.107.0"
+  },
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/test.js"
   },
   "keywords": [
     "geometry",
