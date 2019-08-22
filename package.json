@@ -1,6 +1,6 @@
 {
   "name": "three-geometry-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get vertex and face data from THREE.Geometry",
   "main": "index.js",
   "license": "MIT",
