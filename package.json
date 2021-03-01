@@ -12,7 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "tape": "^4.11.0",
-    "three": "^0.107.0"
+    "three": "^0.125.0"
   },
   "scripts": {
     "test": "node test/test.js"
